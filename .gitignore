@@ -1,0 +1,14 @@
+# never commit data or results
+*.sas7bdat
+*.xpt
+*.rds
+output/
+output_toy/
+toy_data/
+*.csv
+*.csv.gz
+!data/*.csv
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
