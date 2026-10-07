@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below."
+title: "smallarea-validation-design"
+type: software
+license: MIT
+repository-code: "https://github.com/Anna-YuanChen/smallarea-validation-design"
+authors:
+  - family-names: Chen
+    given-names: Yuan
+  - family-names: Gao
+    given-names: Haoyuan
+  - family-names: Ma
+    given-names: Ting Fung
+  - family-names: Olatosi
+    given-names: Bankole
+  - family-names: Baker
+    given-names: Pieter
+  - family-names: Zhang
+    given-names: Jiajia
+preferred-citation:
+  type: article
+  title: "Evaluation design determines model choice in small-area surveillance: comparing spatiotemporal models for county-level substance use disorder-related hospital encounters among people living with HIV in South Carolina, 2005–2023"
+  authors:
+    - family-names: Chen
+      given-names: Yuan
+    - family-names: Gao
+      given-names: Haoyuan
+    - family-names: Ma
+      given-names: Ting Fung
+    - family-names: Olatosi
+      given-names: Bankole
+    - family-names: Baker
+      given-names: Pieter
+    - family-names: Zhang
+      given-names: Jiajia
