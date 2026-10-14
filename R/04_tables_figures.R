@@ -86,7 +86,7 @@ if (!is.null(fitted)) {
   p3 <- ggplot(map_dat) +
     geom_sf(aes(fill = pct), colour = "white", linewidth = .15) +
     facet_grid(type ~ year) +
-    scale_fill_viridis_c(option = "magma", direction = -1, name = "Encounter rate (%)") +
+    scale_fill_viridis_c(option = "magma", direction = -1, name = "Proportion with an encounter (%)") +
     theme_void(base_size = 10) +
     theme(legend.position = "bottom", strip.text = element_text(face = "bold")) +
     labs(title = NULL)

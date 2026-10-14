@@ -94,7 +94,7 @@ p2 <- ggplot(statewide, aes(year, wrate_pct)) +
   geom_ribbon(aes(ymin = lo, ymax = hi), alpha = .15) +
   geom_line(linewidth = .8) + geom_point(size = 1.6) +
   scale_x_continuous(breaks = seq(min(cfg$years), max(cfg$years), 2)) +
-  labs(x = NULL, y = "PLWH with a SUD-related hospital encounter (%)") +
+  labs(x = NULL, y = "PLWH with an SUD abuse-code hospital encounter (%)") +
   theme_minimal(base_size = 11)
 ggsave(file.path(cfg$dir_out, "fig2_statewide_trend.png"), p2,
        width = 7, height = 4.2, dpi = 300)

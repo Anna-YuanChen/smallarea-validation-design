@@ -1,7 +1,7 @@
 ## =====================================================================
 ## 00_config.R  -- paths, analysis options, county crosswalk, helpers
 ## Project: Validation design and model choice in small-area surveillance:
-##          SUD-related hospital encounters among PLWH, South Carolina 2005-2023
+##          hospital encounters with SUD abuse codes among PLWH, South Carolina 2005-2023
 ## =====================================================================
 ## EDIT ONLY THIS FILE for a normal run. Everything downstream reads `cfg`.
 
