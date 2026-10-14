@@ -84,6 +84,14 @@ message("\nRMSE of full-data estimates against the known truth (percentage point
 print(as.data.frame(vs_truth), digits = 3)
 message("\nPrespecified (Design A) selection: ", res$selected)
 
+## ---- 4. analyses added after the primary comparison (persistence comparators,
+##         bootstrap, margin sweep, earlier origins, two-year horizon, scoring) ----
+## Adds a few minutes; set TOY_SKIP_05=1 to skip.
+if (!identical(Sys.getenv("TOY_SKIP_05"), "1")) {
+  assign(".rev_use_existing_cfg", TRUE, envir = globalenv())
+  source(file.path("R", "05_revision_analyses.R"), local = new.env())
+}
+
 runtime_min <- round(as.numeric(difftime(Sys.time(), t_start, units = "mins")), 1)
 source(file.path("R", "session_report.R"))
 write_session_report(file.path(cfg$dir_log, "session_report_toy.txt"),

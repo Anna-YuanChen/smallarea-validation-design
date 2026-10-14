@@ -132,6 +132,12 @@ if (RUN_SENSITIVITY) {
   message("\nRanking and prevalence stability tables written.")
 }
 
+## ---- analyses added after the primary comparison (R/05_revision_analyses.R) --
+## persistence comparators, bootstrap intervals, margin sweep, earlier forecast
+## origins, two-year horizon, log predictive density, level shift (Table S8, Figure S6)
+assign(".rev_use_existing_cfg", TRUE, envir = globalenv())
+source(file.path("R", "05_revision_analyses.R"), local = new.env())
+
 runtime_min <- round(as.numeric(difftime(Sys.time(), t_start, units = "mins")), 1)
 message("\nTotal runtime: ", runtime_min, " minutes")
 source(file.path("R", "session_report.R"))

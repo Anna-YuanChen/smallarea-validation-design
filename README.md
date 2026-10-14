@@ -2,7 +2,7 @@
 
 Code for:
 
-> Chen Y, Gao H, Ma TF, Olatosi B, Baker P, Zhang J. *Evaluation design determines model choice in small-area surveillance: comparing spatiotemporal models for county-level substance use disorder-related hospital encounters among people living with HIV in South Carolina, 2005–2023.*
+> Chen Y, Gao H, Ma TF, Olatosi B, Baker P, Zhang J. *Evaluation design changes model choice in small-area surveillance: comparing spatiotemporal models for county-level hospital encounters with substance use disorder abuse codes among people living with HIV in South Carolina, 2005–2023.*
 
 The pipeline does four things:
 
@@ -60,7 +60,7 @@ source("run_toy.R")
 Rscript run_toy.R
 ```
 
-The quick run takes about 4 minutes on a laptop (MacBook Air, Apple M3). It uses 5 folds and skips Design C. To run the full protocol used in the paper (10 folds, Designs A–C, 9,999 permutations), set `TOY_FULL=1` before running.
+The quick run takes about 4 minutes on a laptop (MacBook Air, Apple M3), plus a few minutes for step 4. It uses 5 folds and skips Design C. To run the full protocol used in the paper (10 folds, Designs A–C, 9,999 permutations), set `TOY_FULL=1` before running.
 
 What the quick run does:
 
@@ -72,19 +72,22 @@ What the quick run does:
 2. **Runs the pipeline** (`R/01_` to `R/04_`): cohort, ICD matching, panel, adjacency, Moran's I, models, holdout designs, selection rule, tables and figures.
 3. **Scores each approach against the truth** and saves the result to `output_toy/toy_rmse_vs_truth.csv`. This check is not possible with real data.
 
-All results are written to `output_toy/`. The hardware and software versions are recorded in `output_toy/logs/session_report_toy.txt`.
+4. **Runs the analyses added after the primary comparison** (`R/05_revision_analyses.R`): persistence comparators (last observed value; pooled last three years), Design B error by target year, county-cluster bootstrap intervals for RMSE differences, a sweep of the selection margin, earlier forecast origins (2010–2014), a two-year horizon, log predictive density and noise-corrected MSE. Set `TOY_SKIP_05=1` to skip this step.
+
+All results are written to `output_toy/` (step 4 in `output_toy/revision/`). The hardware and software versions are recorded in `output_toy/logs/session_report_toy.txt`.
 
 ## Repository layout
 
 ```
 run_toy.R                   complete pipeline on synthetic data (start here)
-run_all.R                   analysis of the restricted data + 12 sensitivity variants
+run_all.R                   analysis of the restricted data + 12 sensitivity variants + R/05_
 R/00_config.R               all options: paths, code list, priors, designs, thresholds
 R/codelist.R                reads and checks the ICD code list
 R/01_build_panel.R          cohort, ICD-9-CM/ICD-10-CM matching, county-year panel
 R/02_descriptives_moran.R   adjacency, Table 1, Moran's I, Figure 1
 R/03_models.R               models, holdout designs, metrics, selection rule
 R/04_tables_figures.R       Tables 2–3, Figures 2–3, supplementary figures
+R/05_revision_analyses.R    analyses added after the primary comparison (Table S8, Figure S6)
 R/simulate_toy_data.R       synthetic data generator with known truth
 R/session_report.R          records R/package versions, CPU, memory, threads
 data/ICD_Code_List_SUD.xlsx ICD code list (Supplementary Table S1)
